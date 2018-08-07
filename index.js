@@ -2,9 +2,10 @@ var JobItemComponent = {
 	props: {
 		title: String,
 		status: String,
-		create: String
+		create: String,
+		url: String
 	},
-	template: '<li><a href="">{{ title }}</a> - {{ status }} - {{ create }}</li>'
+	template: '<li><a :href="url">{{ title }}</a> - {{ status }} - {{ create }}</li>'
 }
 
 var data = {
@@ -13,13 +14,15 @@ var data = {
 				id: 0,
 				title: 'Job-01',
 				status: 'Started',
-				create: Date(Date.now())
+				create: Date(Date.now()),
+				url: './detail.html?id=0'
 			},
 			{
 				id: 1,
 				title: 'Job-02',
 				status: 'Started',
-				create: Date(Date.now())
+				create: Date(Date.now()),
+				url: './detail.html?id=1'
 			}
 		],
 		id: 2
@@ -41,19 +44,19 @@ var app = new Vue({
 			return 'file://'+window.location.pathname+'?'+'title='+job.title+'&'+'status='+job.status+'&'+'date='+job.create;
 		},
 		title: function () {
-			return this.urlParamsValueForKey('title');
-			// var job = this.jobList[id];
-			// return job.title;
+			var id = this.urlParamsValueForKey('id');
+			var job = this.jobList[id];
+			return job.title;
 		},
 		status: function () {
-			return this.urlParamsValueForKey('status');
-			// var job = this.jobList[id];
-			// return job.status;
+			var id = this.urlParamsValueForKey('id');
+			var job = this.jobList[id];
+			return job.status;
 		},
 		date: function () {
-			return this.urlParamsValueForKey('date');
-			// var job = this.jobList[id];
-			// return job.create;
+			var id = this.urlParamsValueForKey('id');
+			var job = this.jobList[id];
+			return job.create;
 		}
 	},
 	methods: {
@@ -65,7 +68,8 @@ var app = new Vue({
 				id: this.id,
 				title: this.newTitle,
 				status: this.newStatus,
-				create: Date(Date.now())
+				create: Date(Date.now()),
+				url: './detail.html?id='+this.id
 			});
 			this.id++;
 		}

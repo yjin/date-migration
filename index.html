@@ -14,13 +14,14 @@
 				v-for="job in jobList"
 				v-bind:title="job.title"
 				v-bind:status="job.status"
-				v-bind:create="job.create">
+				v-bind:create="job.create"
+				v-bind:url="job.url">
 				
 			</job-item>
 		</ul>
 		<input v-model="newTitle" placeholder="Job name">
 		<input v-model="newStatus" placeholder="Status">
-		<button @click="addJob">Add</button>
+		<button @click="addJob">Create job</button>
 
 	</div>
 
