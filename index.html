@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>List</title>
+	<link rel="stylesheet" href="index.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+	<div id="data-migration">
+
+		<ul>
+			<job-item 
+				v-for="job in jobList"
+				v-bind:title="job.title"
+				v-bind:status="job.status"
+				v-bind:create="job.create">
+				
+			</job-item>
+		</ul>
+		<input v-model="newTitle" placeholder="Job name">
+		<input v-model="newStatus" placeholder="Status">
+		<button @click="addJob">Add</button>
+
+	</div>
+
+	<script src="index.js"></script>
+</body>
+</html>
