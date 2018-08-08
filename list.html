@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dashboard</title>
+	<title>List</title>
 	<link rel="stylesheet" href="index.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
@@ -9,7 +9,7 @@
 
 	<div id="data-migration">
 
-		<h4>Recent jobs</h4>
+		<h4>Job list</h4>
 
 		<ul>
 			<job-item 
@@ -21,12 +21,11 @@
 				
 			</job-item>
 		</ul>
+		<input v-model="newTitle" placeholder="Job name">
+		<input v-model="newStatus" placeholder="Status">
+		<button @click="addJob">Create job</button>
 
-		<p>Started: {{ numberOfNewJobs }}</p>
-		<p>Runnning: {{ numberOfRunningJobs }}</p>
-		<p>Complete: {{ numberOfCompleteJobs }}</p>
-
-		<a href="./list.html">Job list</a>
+		<a href="./index.html">Dashboard</a>
 
 	</div>
 
