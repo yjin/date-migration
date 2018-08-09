@@ -58,10 +58,6 @@ var app = new Vue({
 
 	computed: {
 		urlLink: function () {
-			// var job = this.jobList.filter(function(item) {
-			// 	return item.id === id
-			// });
-
 			var job = this.jobList[0];
 			return 'file://'+window.location.pathname+'?'+'title='+job.title+'&'+'status='+job.status+'&'+'date='+job.create;
 		},
